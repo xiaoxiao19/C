@@ -7,6 +7,8 @@
 		char char_data[20];
 		char *char_point;
 		char_point = (char*)malloc(sizeof(char)*20);
+		//如果没有这句，直接是scanf("%s",char_point);的话，会产生错误
+		//因为指针会指向错误的地址
 
 		//scanf("%s",char_data);
 		//scanf("%s",char_point);
@@ -22,7 +24,7 @@
 	使用制表符（TAB）hello	world   hello,world
 	使用回车键（ENTER）hello
 					   world        hello,world
-	getchar输入时：
+	gets输入时：
 	hello  world
 	mary Li
 	输出：hello world.mary Li
@@ -76,7 +78,40 @@ scanf和getchar读取字符：
 scanf和gets读取字符串：
 	scanf读取字符串时，遇到空格，TAB，ENTER就会停止读取，所以scanf不能读取带空格的字符串
 	读取带空格的字符串要使用gets
+	int main()
+	{
+		char char_data[20];
+		char *char_point;
+		char_point = (char*)malloc(sizeof(char)*20);
+		//如果没有这句，直接是scanf("%s",char_point);的话，会产生错误
+		//因为指针会指向错误的地址
 
+		//scanf("%s",char_data);
+		//scanf("%s",char_point);
+		gets(char_data);
+		gets(char_point);
+
+		printf("%s,%s\n",char_data,char_point);
+
+		return 0;
+	}
+	scanf输入时，有三种方式：            输出
+	使用空格：hello world           hello,world
+	使用制表符（TAB）hello	world   hello,world
+	使用回车键（ENTER）hello
+					   world        hello,world
+	gets输入时：
+	hello  world
+	mary Li
+	输出：hello world.mary Li
+
+	使用scanf get输入：
+	scanf("%s",char_data);
+	gets(char_point);
+	输入：hello（回车）
+	输出：hello,
+	输入：hello world
+	输出：hello,world
 
 
 scanf getchar混合读取字符串和字符：
